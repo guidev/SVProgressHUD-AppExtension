@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SVIndefiniteAnimatedView : UIView
+@interface SVIndefiniteAnimatedViewExtension : UIView
 
 @property (nonatomic, assign) CGFloat strokeThickness;
 @property (nonatomic, assign) CGFloat radius;

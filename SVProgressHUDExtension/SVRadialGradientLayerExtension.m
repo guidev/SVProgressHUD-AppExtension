@@ -5,9 +5,9 @@
 //  Copyright (c) 2014-2019 Tobias Tiemerding. All rights reserved.
 //
 
-#import "SVRadialGradientLayer.h"
+#import "SVRadialGradientLayerExtension.h"
 
-@implementation SVRadialGradientLayer
+@implementation SVRadialGradientLayerExtension
 
 - (void)drawInContext:(CGContextRef)context {
     size_t locationsCount = 2;

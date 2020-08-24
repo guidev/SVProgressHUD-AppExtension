@@ -17,13 +17,13 @@ extern NSString * _Nonnull const SVProgressHUDDidAppearNotification;
 
 extern NSString * _Nonnull const SVProgressHUDStatusUserInfoKey;
 
-typedef NS_ENUM(NSInteger, SVProgressHUDStyle) {
+typedef NS_ENUM(NSInteger, SVProgressHUDStyleExtension) {
     SVProgressHUDStyleLight NS_SWIFT_NAME(light),   // default style, white HUD with black text, HUD background will be blurred
     SVProgressHUDStyleDark NS_SWIFT_NAME(dark),     // black HUD and white text, HUD background will be blurred
     SVProgressHUDStyleCustom NS_SWIFT_NAME(custom)  // uses the fore- and background color properties
 };
 
-typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
+typedef NS_ENUM(NSUInteger, SVProgressHUDMaskTypeExtension) {
     SVProgressHUDMaskTypeNone NS_SWIFT_NAME(none) = 1,      // default mask type, allow user interactions while HUD is displayed
     SVProgressHUDMaskTypeClear NS_SWIFT_NAME(clear),        // don't allow user interactions with background objects
     SVProgressHUDMaskTypeBlack NS_SWIFT_NAME(black),        // don't allow user interactions with background objects and dim the UI in the back of the HUD (as seen in iOS 7 and above)
@@ -31,21 +31,21 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
     SVProgressHUDMaskTypeCustom NS_SWIFT_NAME(custom)       // don't allow user interactions with background objects and dim the UI in the back of the HUD with a custom color
 };
 
-typedef NS_ENUM(NSUInteger, SVProgressHUDAnimationType) {
+typedef NS_ENUM(NSUInteger, SVProgressHUDAnimationTypeExtension) {
     SVProgressHUDAnimationTypeFlat NS_SWIFT_NAME(flat),     // default animation type, custom flat animation (indefinite animated ring)
     SVProgressHUDAnimationTypeNative NS_SWIFT_NAME(native)  // iOS native UIActivityIndicatorView
 };
 
 typedef void (^SVProgressHUDShowCompletion)(void);
-typedef void (^SVProgressHUDDismissCompletion)(void);
+typedef void (^SVProgressHUDDismissCompletionExtension)(void);
 
-@interface SVProgressHUD : UIView
+@interface SVProgressHUDExtension : UIView
 
 #pragma mark - Customization
 
-@property (assign, nonatomic) SVProgressHUDStyle defaultStyle UI_APPEARANCE_SELECTOR;                   // default is SVProgressHUDStyleLight
-@property (assign, nonatomic) SVProgressHUDMaskType defaultMaskType UI_APPEARANCE_SELECTOR;             // default is SVProgressHUDMaskTypeNone
-@property (assign, nonatomic) SVProgressHUDAnimationType defaultAnimationType UI_APPEARANCE_SELECTOR;   // default is SVProgressHUDAnimationTypeFlat
+@property (assign, nonatomic) SVProgressHUDStyleExtension defaultStyle UI_APPEARANCE_SELECTOR;                   // default is SVProgressHUDStyleLight
+@property (assign, nonatomic) SVProgressHUDMaskTypeExtension defaultMaskType UI_APPEARANCE_SELECTOR;             // default is SVProgressHUDMaskTypeNone
+@property (assign, nonatomic) SVProgressHUDAnimationTypeExtension defaultAnimationType UI_APPEARANCE_SELECTOR;   // default is SVProgressHUDAnimationTypeFlat
 @property (strong, nonatomic, nullable) UIView *containerView;                                          // if nil then use default window level
 @property (assign, nonatomic) CGSize minimumSize UI_APPEARANCE_SELECTOR;                        // default is CGSizeZero, can be used to avoid resizing for a larger message
 @property (assign, nonatomic) CGFloat ringThickness UI_APPEARANCE_SELECTOR;                     // default is 2 pt
@@ -77,9 +77,9 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 @property (assign, nonatomic) BOOL hapticsEnabled;      // default is NO
 @property (assign, nonatomic) BOOL motionEffectEnabled; // default is YES
 
-+ (void)setDefaultStyle:(SVProgressHUDStyle)style;                      // default is SVProgressHUDStyleLight
-+ (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType;             // default is SVProgressHUDMaskTypeNone
-+ (void)setDefaultAnimationType:(SVProgressHUDAnimationType)type;       // default is SVProgressHUDAnimationTypeFlat
++ (void)setDefaultStyle:(SVProgressHUDStyleExtension)style;                      // default is SVProgressHUDStyleLight
++ (void)setDefaultMaskType:(SVProgressHUDMaskTypeExtension)maskType;             // default is SVProgressHUDMaskTypeNone
++ (void)setDefaultAnimationType:(SVProgressHUDAnimationTypeExtension)type;       // default is SVProgressHUDAnimationTypeFlat
 + (void)setContainerView:(nullable UIView*)containerView;               // default is window level
 + (void)setMinimumSize:(CGSize)minimumSize;                             // default is CGSizeZero, can be used to avoid resizing for a larger message
 + (void)setRingThickness:(CGFloat)ringThickness;                        // default is 2 pt
@@ -112,37 +112,37 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 #pragma mark - Show Methods
 
 + (void)show;
-+ (void)showWithMaskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use show and setDefaultMaskType: instead.")));
++ (void)showWithMaskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use show and setDefaultMaskType: instead.")));
 + (void)showWithStatus:(nullable NSString*)status;
-+ (void)showWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showWithStatus: and setDefaultMaskType: instead.")));
++ (void)showWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showWithStatus: and setDefaultMaskType: instead.")));
 
 + (void)showProgress:(float)progress;
-+ (void)showProgress:(float)progress maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showProgress: and setDefaultMaskType: instead.")));
++ (void)showProgress:(float)progress maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showProgress: and setDefaultMaskType: instead.")));
 + (void)showProgress:(float)progress status:(nullable NSString*)status;
-+ (void)showProgress:(float)progress status:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showProgress:status: and setDefaultMaskType: instead.")));
++ (void)showProgress:(float)progress status:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showProgress:status: and setDefaultMaskType: instead.")));
 
 + (void)setStatus:(nullable NSString*)status; // change the HUD loading status while it's showing
 
 // stops the activity indicator, shows a glyph + status, and dismisses the HUD a little bit later
 + (void)showInfoWithStatus:(nullable NSString*)status;
-+ (void)showInfoWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showInfoWithStatus: and setDefaultMaskType: instead.")));
++ (void)showInfoWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showInfoWithStatus: and setDefaultMaskType: instead.")));
 + (void)showSuccessWithStatus:(nullable NSString*)status;
-+ (void)showSuccessWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showSuccessWithStatus: and setDefaultMaskType: instead.")));
++ (void)showSuccessWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showSuccessWithStatus: and setDefaultMaskType: instead.")));
 + (void)showErrorWithStatus:(nullable NSString*)status;
-+ (void)showErrorWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showErrorWithStatus: and setDefaultMaskType: instead.")));
++ (void)showErrorWithStatus:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showErrorWithStatus: and setDefaultMaskType: instead.")));
 
 // shows a image + status, use white PNGs with the imageViewSize (default is 28x28 pt)
 + (void)showImage:(nonnull UIImage*)image status:(nullable NSString*)status;
-+ (void)showImage:(nonnull UIImage*)image status:(nullable NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showImage:status: and setDefaultMaskType: instead.")));
++ (void)showImage:(nonnull UIImage*)image status:(nullable NSString*)status maskType:(SVProgressHUDMaskTypeExtension)maskType __attribute__((deprecated("Use showImage:status: and setDefaultMaskType: instead.")));
 
 + (void)setOffsetFromCenter:(UIOffset)offset;
 + (void)resetOffsetFromCenter;
 
 + (void)popActivity; // decrease activity count, if activity count == 0 the HUD is dismissed
 + (void)dismiss;
-+ (void)dismissWithCompletion:(nullable SVProgressHUDDismissCompletion)completion;
++ (void)dismissWithCompletion:(nullable SVProgressHUDDismissCompletionExtension)completion;
 + (void)dismissWithDelay:(NSTimeInterval)delay;
-+ (void)dismissWithDelay:(NSTimeInterval)delay completion:(nullable SVProgressHUDDismissCompletion)completion;
++ (void)dismissWithDelay:(NSTimeInterval)delay completion:(nullable SVProgressHUDDismissCompletionExtension)completion;
 
 + (BOOL)isVisible;
 

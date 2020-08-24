@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A9D7DD71AB345980039B273"
-               BuildableName = "SVProgressHUD.framework"
-               BlueprintName = "SVProgressHUD-Framework"
-               ReferencedContainer = "container:SVProgressHUD.xcodeproj">
+               BuildableName = "SVProgressHUDExtension.framework"
+               BlueprintName = "SVProgressHUDExtension-Framework"
+               ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "4A9D7DE11AB345990039B273"
                BuildableName = "SVProgressHUD-FrameworkTests.xctest"
                BlueprintName = "SVProgressHUD-FrameworkTests"
-               ReferencedContainer = "container:SVProgressHUD.xcodeproj">
+               ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,6 +41,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4A9D7DD71AB345980039B273"
+            BuildableName = "SVProgressHUDExtension.framework"
+            BlueprintName = "SVProgressHUDExtension-Framework"
+            ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -49,21 +58,10 @@
                BlueprintIdentifier = "4A9D7DE11AB345990039B273"
                BuildableName = "SVProgressHUD-FrameworkTests.xctest"
                BlueprintName = "SVProgressHUD-FrameworkTests"
-               ReferencedContainer = "container:SVProgressHUD.xcodeproj">
+               ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A9D7DD71AB345980039B273"
-            BuildableName = "SVProgressHUD.framework"
-            BlueprintName = "SVProgressHUD-Framework"
-            ReferencedContainer = "container:SVProgressHUD.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -79,13 +77,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A9D7DD71AB345980039B273"
-            BuildableName = "SVProgressHUD.framework"
-            BlueprintName = "SVProgressHUD-Framework"
-            ReferencedContainer = "container:SVProgressHUD.xcodeproj">
+            BuildableName = "SVProgressHUDExtension.framework"
+            BlueprintName = "SVProgressHUDExtension-Framework"
+            ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -97,9 +93,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A9D7DD71AB345980039B273"
-            BuildableName = "SVProgressHUD.framework"
-            BlueprintName = "SVProgressHUD-Framework"
-            ReferencedContainer = "container:SVProgressHUD.xcodeproj">
+            BuildableName = "SVProgressHUDExtension.framework"
+            BlueprintName = "SVProgressHUDExtension-Framework"
+            ReferencedContainer = "container:SVProgressHUDExtension.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

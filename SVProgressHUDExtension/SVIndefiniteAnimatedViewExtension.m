@@ -5,16 +5,16 @@
 //  Copyright (c) 2014-2019 Guillaume Campagna. All rights reserved.
 //
 
-#import "SVIndefiniteAnimatedView.h"
-#import "SVProgressHUD.h"
+#import "SVIndefiniteAnimatedViewExtension.h"
+#import "SVProgressHUDExtension.h"
 
-@interface SVIndefiniteAnimatedView ()
+@interface SVIndefiniteAnimatedViewExtension ()
 
 @property (nonatomic, strong) CAGradientLayer *indefiniteAnimatedGradientLayer;
 
 @end
 
-@implementation SVIndefiniteAnimatedView
+@implementation SVIndefiniteAnimatedViewExtension
 
 - (void)willMoveToSuperview:(UIView*)newSuperview {
     if (newSuperview) {

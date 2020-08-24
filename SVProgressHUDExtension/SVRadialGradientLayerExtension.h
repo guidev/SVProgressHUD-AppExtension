@@ -7,7 +7,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface SVRadialGradientLayer : CALayer
+@interface SVRadialGradientLayerExtension : CALayer
 
 @property (nonatomic) CGPoint gradientCenter;
 

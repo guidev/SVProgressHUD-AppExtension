@@ -5,15 +5,15 @@
 //  Copyright (c) 2017-2019 Tobias Tiemerding. All rights reserved.
 //
 
-#import "SVProgressAnimatedView.h"
+#import "SVProgressAnimatedViewExtension.h"
 
-@interface SVProgressAnimatedView ()
+@interface SVProgressAnimatedViewExtension ()
 
 @property (nonatomic, strong) CAShapeLayer *ringAnimatedLayer;
 
 @end
 
-@implementation SVProgressAnimatedView
+@implementation SVProgressAnimatedViewExtension
 
 - (void)willMoveToSuperview:(UIView*)newSuperview {
     if (newSuperview) {
