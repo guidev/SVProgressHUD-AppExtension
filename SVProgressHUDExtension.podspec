@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    core.source_files = 'SVProgressHUD/*.{h,m}'
-    core.resources = 'SVProgressHUD/SVProgressHUD.bundle'
+    core.source_files = 'SVProgressHUDExtension/*.{h,m}'
+    core.resources = 'SVProgressHUDExtension/SVProgressHUD.bundle'
   end
 
   s.subspec 'AppExtension' do |ext|
